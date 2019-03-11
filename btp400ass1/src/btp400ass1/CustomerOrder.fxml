@@ -7,24 +7,25 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="btp400ass1.Controller">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="btp400ass1.Controller">
     
     <Label text="File Name" />
     <TextField id="FileName" fx:id="fileName" layoutX="115.0" layoutY="28.0" />
     <Label text="Customer Name" />
     <TextField id="Name" fx:id="cusName" layoutX="115.0" layoutY="78.0" />
-    <Label text="Selected Options" />
-   <CheckBox mnemonicParsing="false" text="Brakes" />
-   <CheckBox mnemonicParsing="false" text="Chassis" />
-   <CheckBox mnemonicParsing="false" text="Collision Sensors" />
-   <Label text="Gear Box" />
-   <ChoiceBox id="gearBoxChoice" fx:id="gearBoxChoice" prefWidth="150.0" value="Pick an option" />
-   <Label text="Doors" />
-   <ChoiceBox id="doorBoxChoice" fx:id="doorBoxChoice" prefWidth="150.0" value="Pick an option" />
-   <Label text="Paint" />
-   <ChoiceBox id="paintBoxChoice" fx:id="paintBoxChoice" prefWidth="150.0" value="Pick an option" />
-   <Label text="Transmission" />
-   <ChoiceBox id="transmissionBoxChoice" fx:id="transmissionBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <Label text="Please select features for your vehicle :" />
+    <Label text="Chassis" />
+    <ChoiceBox id="chassisBoxChoice" fx:id="chassisBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <Label text="Gear Box" />
+    <ChoiceBox id="gearBoxChoice" fx:id="gearBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <Label text="Doors" />
+    <ChoiceBox id="doorBoxChoice" fx:id="doorBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <Label text="Paint" />
+    <ChoiceBox id="paintBoxChoice" fx:id="paintBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <Label text="Transmission" />
+    <ChoiceBox id="transmissionBoxChoice" fx:id="transmissionBoxChoice" prefWidth="150.0" value="Pick an option" />
+    <CheckBox mnemonicParsing="false" text="Brakes" />
+    <CheckBox mnemonicParsing="false" text="Collision Sensors" />
     <Button fx:id="orderButton" onAction="#handleOrderButtonClick" text="Order" />
     <Button fx:id="cancelButton" onAction="#handleCancelButtonClick" text="Cancel" />
 

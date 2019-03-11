@@ -16,9 +16,10 @@ public class Controller {
 	ObservableList<String> paintBoxList = FXCollections.observableArrayList("Pick an option", "Red", "White", "Black");
 	ObservableList<String> doorBoxList = FXCollections.observableArrayList("Pick an option", "2 Doors", "4 Doors");
 	ObservableList<String> transmissionBoxList = FXCollections.observableArrayList("Pick an option", "Automatic", "Manual");
+	ObservableList<String> chassisBoxList = FXCollections.observableArrayList("Pick an option", "Sedan", "Truck");
 	
 	@FXML
-	public ChoiceBox gearBoxChoice, paintBoxChoice, doorBoxChoice, transmissionBoxChoice;
+	public ChoiceBox gearBoxChoice, paintBoxChoice, doorBoxChoice, transmissionBoxChoice, chassisBoxChoice;
 	
 	@FXML
 	Button orderButton, cancelButton;
@@ -30,6 +31,7 @@ public class Controller {
 	
 	public void initialize(){
 		gearBoxChoice.setItems(gearBoxList);
+		chassisBoxChoice.setItems(chassisBoxList);
 		paintBoxChoice.setItems(paintBoxList);
 		doorBoxChoice.setItems(doorBoxList);
 		transmissionBoxChoice.setItems(transmissionBoxList);
