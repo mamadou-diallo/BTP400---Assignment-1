@@ -23,8 +23,11 @@ public class Controller {
 	
 	@FXML
 	Button orderButton, cancelButton;
+	
 	@FXML
 	TextField fileName, cusName;
+	
+	public String fileNameTxt;
 	
 	Customer customer = new Customer();
 	
@@ -37,6 +40,17 @@ public class Controller {
 		transmissionBoxChoice.setItems(transmissionBoxList);
 	}
     public void handleOrderButtonClick(ActionEvent event) {
+    	//open stream
+    	fileNameTxt = fileName.getText();
+    	File path = new File(fileNameTxt);
+    	//need to write code to add to file "path"
+    	
+    	//close stream
+    	outStream.close();
+
+    	
+    	
+    	
     	// add code to take values from FXML(verify that option has been selected) -> set data to Stations -> add Station to arraylist
     	// example : customer.setName(cusName);
     	/*
