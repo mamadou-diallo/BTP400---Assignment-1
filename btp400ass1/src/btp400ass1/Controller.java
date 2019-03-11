@@ -39,7 +39,12 @@ public class Controller {
     public void handleOrderButtonClick(ActionEvent event) {
     	// add code to take values from FXML(verify that option has been selected) -> set data to Stations -> add Station to arraylist
     	// example : customer.setName(cusName);
-    	// ( wrong syntax ) customer.job.stationArray.add etc etc 
+    	/*
+    	 * example : if doorBoxChoice == 2 Door ... Create new DoorStation -> 
+    	 * 		( wrong syntax ) job.stationArray.add etc etc 
+    	 * 
+    	 */
+    	
     }
    
 	
