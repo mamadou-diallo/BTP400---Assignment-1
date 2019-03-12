@@ -8,12 +8,31 @@ public class Job {
 	public String jobName;
 	public int jobId;
 	public ArrayList<Station> stationArray = new ArrayList<Station>();
-	
+	public String fileName;
 	
 	public Job()
 	{
 		jId++;
 		jobId = jId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	public void writeToFile(String chChoice, String gbChoice, String tmChoice, String dbChoice, String ptChoice) throws IOException
+	{
+		File path = new File(this.fileName);
+		Task task = new Task(chChoice, gbChoice, tmChoice, dbChoice, ptChoice);
+				
+		OutputStream outStream = new FileOutputStream(path);
+    	outStream.write(task.toString().getBytes());
+    	outStream.close();		
+		
 	}
 	
 	
