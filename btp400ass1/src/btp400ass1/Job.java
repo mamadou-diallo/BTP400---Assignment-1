@@ -24,10 +24,10 @@ public class Job {
 		this.fileName = fileName;
 	}
 	
-	public void writeToFile(String chChoice, String gbChoice, String tmChoice, String dbChoice, String ptChoice) throws IOException
+	public void writeToFile(String chChoice, String gbChoice, String tmChoice, String dbChoice, String ptChoice, String csChoice) throws IOException
 	{
 		File path = new File(this.fileName);
-		Task task = new Task(chChoice, gbChoice, tmChoice, dbChoice, ptChoice);
+		Task task = new Task(chChoice, gbChoice, tmChoice, dbChoice, ptChoice, csChoice);
 				
 		OutputStream outStream = new FileOutputStream(path);
     	outStream.write(task.toString().getBytes());

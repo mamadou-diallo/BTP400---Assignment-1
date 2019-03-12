@@ -9,12 +9,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 public class Controller {
 
-	ObservableList<String> gearBoxList = FXCollections.observableArrayList("Pick an option","5 Speed", "6 Speed");
+	ObservableList<String> gearBoxList = FXCollections.observableArrayList("Pick an option","FWD", "AWD");
 	ObservableList<String> paintBoxList = FXCollections.observableArrayList("Pick an option", "Red", "White", "Black");
 	ObservableList<String> doorBoxList = FXCollections.observableArrayList("Pick an option", "2 Doors", "4 Doors");
 	ObservableList<String> transmissionBoxList = FXCollections.observableArrayList("Pick an option", "Automatic", "Manual");
@@ -24,13 +25,15 @@ public class Controller {
 	public ChoiceBox gearBoxChoice, paintBoxChoice, doorBoxChoice, transmissionBoxChoice, chassisBoxChoice;
 	
 	@FXML
+	public CheckBox collisionSensorCheckBoxChoice;
+	@FXML
 	Button orderButton, cancelButton;
 	
 	@FXML
 	TextField fileName, cusName;
 	
-	public String fileNameTxt, getGearBoxChoice, getChassisBoxChoice, getPaintBoxChoice, getDoorBoxChoice, getTransmissionBoxChoice;
-	public String setGearBoxChoice = null, setChassisBoxChoice = null, setPaintBoxChoice = null, setDoorBoxChoice = null, setTransmissionBoxChoice = null;
+	public String fileNameTxt, customerNameTxt, getGearBoxChoice, getChassisBoxChoice, getPaintBoxChoice, getDoorBoxChoice, getTransmissionBoxChoice, getCollisionSensorBoxChoice;
+	public String setGearBoxChoice = null, setChassisBoxChoice = null, setPaintBoxChoice = null, setDoorBoxChoice = null, setTransmissionBoxChoice = null, setCollisionSensorBoxChoice;
 	public String empty = new String();
 	public String errorOption = "Pick an option";
 	Customer customer = new Customer();
@@ -42,23 +45,24 @@ public class Controller {
 		paintBoxChoice.setItems(paintBoxList);
 		doorBoxChoice.setItems(doorBoxList);
 		transmissionBoxChoice.setItems(transmissionBoxList);
+		
 	}
 	
 	
     public void handleOrderButtonClick(ActionEvent event) throws IOException {
     	
     	fileNameTxt = fileName.getText();
-    	
-    	
+    	customerNameTxt = cusName.getText();
+    	customer.setName(customerNameTxt);
     	getGearBoxChoice = gearBoxChoice.getValue().toString();
     	if(getGearBoxChoice.equals(errorOption)){
     		Alert errorAlert = new Alert(AlertType.INFORMATION);
     		errorAlert.setHeaderText("Input not valid");
     		errorAlert.setContentText("You must pick a gear box");
     		errorAlert.showAndWait();
-    	}else if(getGearBoxChoice.equals("5 Speed")){
+    	}else if(getGearBoxChoice.equals("FWD")){
     		setGearBoxChoice = getGearBoxChoice;
-    	}else if(getGearBoxChoice.equals("6 speed")){
+    	}else if(getGearBoxChoice.equals("AWD")){
     		setGearBoxChoice = getGearBoxChoice;
     	}
     	
@@ -119,6 +123,13 @@ public class Controller {
     	}
     	
     	
+    	if(collisionSensorCheckBoxChoice.isSelected())
+    	{
+    		setCollisionSensorBoxChoice = "true";
+    	}else{
+    		setCollisionSensorBoxChoice = "false";
+    	}
+    	
     	
     	
     	
@@ -126,7 +137,7 @@ public class Controller {
     	if(!fileNameTxt.equals(empty) || !setTransmissionBoxChoice.equals(empty) || !setGearBoxChoice.equals(empty) || !setChassisBoxChoice.equals(empty) || !setPaintBoxChoice.equals(empty) || !setDoorBoxChoice.equals(empty))
     	{
     		customer.job.setFileName(fileNameTxt);
-    		customer.job.writeToFile(setChassisBoxChoice, setGearBoxChoice, setTransmissionBoxChoice, setDoorBoxChoice, setPaintBoxChoice);
+    		customer.job.writeToFile(setChassisBoxChoice, setGearBoxChoice, setTransmissionBoxChoice, setDoorBoxChoice, setPaintBoxChoice, setCollisionSensorBoxChoice);
     	}
     	}catch(NullPointerException e){
     		Alert errorAlert = new Alert(AlertType.INFORMATION);
