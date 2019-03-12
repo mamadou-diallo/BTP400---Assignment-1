@@ -11,4 +11,12 @@ public class Task {
 		paintType = pT;
 		transmissionType = tT;
 	}
+
+	@Override
+	public String toString() {
+		return "Task [chassisType=" + chassisType + ", gearBoxType=" + gearBoxType + ", doorType=" + doorType
+				+ ", paintType=" + paintType + ", transmissionType=" + transmissionType + "]";
+	}
+	
+	
 }

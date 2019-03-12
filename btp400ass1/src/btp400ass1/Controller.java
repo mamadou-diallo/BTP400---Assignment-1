@@ -48,8 +48,7 @@ public class Controller {
     public void handleOrderButtonClick(ActionEvent event) throws IOException {
     	
     	fileNameTxt = fileName.getText();
-    	//File path = new File(fileNameTxt);
-    	//need to write code to add to file "path"
+    	
     	
     	getGearBoxChoice = gearBoxChoice.getValue().toString();
     	if(getGearBoxChoice.equals(errorOption)){
