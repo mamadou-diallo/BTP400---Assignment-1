@@ -15,7 +15,7 @@ public class CustomerApp extends Application {
 		public void start(Stage primaryStage) throws Exception {
 			Parent root = FXMLLoader.load(getClass().getResource("CustomerOrder.fxml"));
 			primaryStage.setTitle("Customer Order Application");
-			primaryStage.setScene(new Scene(root, 300 ,275));
+			primaryStage.setScene(new Scene(root, 500 ,500));
 			primaryStage.show();
 
 		}

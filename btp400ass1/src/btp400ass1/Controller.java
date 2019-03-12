@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -27,8 +29,8 @@ public class Controller {
 	@FXML
 	TextField fileName, cusName;
 	
-	public String fileNameTxt;
-	
+	public String fileNameTxt, getGearBoxChoice, getChassisBoxChoice, getPaintBoxChoice, getDoorBoxChoice, getTransmissionBoxChoice;
+	public String errorOption = "Pick an option";
 	Customer customer = new Customer();
 	
 	
@@ -39,14 +41,112 @@ public class Controller {
 		doorBoxChoice.setItems(doorBoxList);
 		transmissionBoxChoice.setItems(transmissionBoxList);
 	}
+	
+	
     public void handleOrderButtonClick(ActionEvent event) {
     	//open stream
-    	fileNameTxt = fileName.getText();
-    	File path = new File(fileNameTxt);
+    	//fileNameTxt = fileName.getText();
+    	//File path = new File(fileNameTxt);
     	//need to write code to add to file "path"
     	
+    	getGearBoxChoice = gearBoxChoice.getValue().toString();
+    	if(getGearBoxChoice.equals(errorOption)){
+    		Alert errorAlert = new Alert(AlertType.INFORMATION);
+    		errorAlert.setHeaderText("Input not valid");
+    		errorAlert.setContentText("You must pick a gear box");
+    		errorAlert.showAndWait();
+    	}else if(getGearBoxChoice.equals("5 Speed")){
+    		GearBoxStation gearBox = new GearBoxStation();
+    		gearBox.setGearBox("5 Speed");
+    		customer.job.stationArray.add(gearBox);
+    	}else{
+    		GearBoxStation gearBox = new GearBoxStation();
+    		gearBox.setGearBox("6 Speed");
+    		customer.job.stationArray.add(gearBox);
+    	}
+    	
+    	
+    	getChassisBoxChoice = chassisBoxChoice.getValue().toString();
+  
+    	if(getChassisBoxChoice.equals(errorOption)){
+    		Alert errorAlert = new Alert(AlertType.INFORMATION);
+    		errorAlert.setHeaderText("Input not valid");
+    		errorAlert.setContentText("You must pick a chassis");
+    		errorAlert.showAndWait();
+    	}else if(getGearBoxChoice.equals("5 Speed")){
+    		ChassisStation chassis = new ChassisStation();
+    		chassis.setChassis("Sedan");
+    		customer.job.stationArray.add(chassis);
+    	}else{
+    		ChassisStation chassis = new ChassisStation();
+    		chassis.setChassis("Truck");
+    		customer.job.stationArray.add(chassis);
+    	}
+    	
+    	getPaintBoxChoice = paintBoxChoice.getValue().toString();
+    	
+    	if(getPaintBoxChoice.equals(errorOption)){
+    		Alert errorAlert = new Alert(AlertType.INFORMATION);
+    		errorAlert.setHeaderText("Input not valid");
+    		errorAlert.setContentText("You must pick a paint color");
+    		errorAlert.showAndWait();
+    	}else if(getGearBoxChoice.equals("White")){
+    		PaintStation paint = new PaintStation();
+    		paint.setPaintColor("White");
+    		customer.job.stationArray.add(paint);
+    	}else if(getGearBoxChoice.equals("Red")){
+    		PaintStation paint = new PaintStation();
+    		paint.setPaintColor("Red");
+    		customer.job.stationArray.add(paint);
+    	}else{
+    		PaintStation paint = new PaintStation();
+    		paint.setPaintColor("Black");
+    		customer.job.stationArray.add(paint);
+    	}
+    	
+    	
+    	//Select Door
+    	getDoorBoxChoice = doorBoxChoice.getValue().toString();
+    	
+    	if(getDoorBoxChoice.equals(errorOption)){
+    		Alert errorAlert = new Alert(AlertType.INFORMATION);
+    		errorAlert.setHeaderText("Input not valid");
+    		errorAlert.setContentText("You must pick a door");
+    		errorAlert.showAndWait();
+    	}else if(getDoorBoxChoice.equals("2 Doors")){
+    		DoorStation doors = new DoorStation();
+    		doors.setDoorNumber(2);
+    		customer.job.stationArray.add(doors);
+    	}else{
+    		DoorStation doors = new DoorStation();
+    		doors.setDoorNumber(4);
+    		customer.job.stationArray.add(doors);
+    	}
+    	
+    	getTransmissionBoxChoice = transmissionBoxChoice.getValue().toString();
+    	if(getTransmissionBoxChoice.equals(errorOption)){
+    		Alert errorAlert = new Alert(AlertType.INFORMATION);
+    		errorAlert.setHeaderText("Input not valid");
+    		errorAlert.setContentText("You must pick a transmission type");
+    		errorAlert.showAndWait();
+    	}else if(getTransmissionBoxChoice.equals("Automatic")){
+    		TransmissionStation transmissionType = new TransmissionStation();
+    		transmissionType.setTransmissionType("Automatic");
+    		customer.job.stationArray.add(transmissionType);
+    	}else{
+    		TransmissionStation transmissionType = new TransmissionStation();
+    		transmissionType.setTransmissionType("Manual");
+    		customer.job.stationArray.add(transmissionType);
+    	}
+    	
+    	System.out.println(getGearBoxChoice);
+    	System.out.println(getChassisBoxChoice);
+    	System.out.println(getPaintBoxChoice);
+    	System.out.println(getDoorBoxChoice);
+    	System.out.println(getTransmissionBoxChoice);
+    	
     	//close stream
-    	outStream.close();
+    	//outStream.close();
 
     	
     	
