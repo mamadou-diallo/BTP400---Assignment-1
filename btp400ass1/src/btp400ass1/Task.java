@@ -4,7 +4,7 @@ public class Task {
 	public String chassisType, axleType, brakeType, gearBoxType, doorType, paintType, transmissionType, collisionSensorType, vinType;
 	
 	
-	public Task(String cT, String gbT, String dT,String pT,String tT, String csT)
+	public Task(String cT, String gbT, String tT,String dT,String pT, String csT)
 	{
 		chassisType = cT;
 		gearBoxType = gbT;
