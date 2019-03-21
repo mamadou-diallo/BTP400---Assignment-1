@@ -239,11 +239,7 @@ public class Controller {
     		customer.job.stationArray.add(transmissionType);
     	}
     	*/
-    	System.out.println(getGearBoxChoice);
-    	System.out.println(getChassisBoxChoice);
-    	System.out.println(getPaintBoxChoice);
-    	System.out.println(getDoorBoxChoice);
-    	System.out.println(getTransmissionBoxChoice);
+    
     	
     	//close stream
     	//outStream.close();
