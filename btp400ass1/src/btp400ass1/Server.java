@@ -15,7 +15,7 @@ public class Server {
     //socket server port on which it will listen
     private static int port;
     
-    public static void main(String args[]) throws IOException, ClassNotFoundException{
+    public Server() throws IOException, ClassNotFoundException{
         
     	ArrayList<String> stations = new ArrayList<String>();
     	stations.add("BrakeStation.java");

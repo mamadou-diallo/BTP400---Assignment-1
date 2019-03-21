@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 
 public class Client {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public Client() throws IOException, ClassNotFoundException {
         
     	//get the localhost IP address, if server is running on some other IP, you need to use that
         InetAddress host = InetAddress.getLocalHost();
